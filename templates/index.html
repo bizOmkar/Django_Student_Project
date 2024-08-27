@@ -1,0 +1,36 @@
+{%  extends "base.html" %}
+{% comment %} <h1>Student Portal</h1>
+<hr>
+<hr>
+
+{% for student in all_students %}
+    <h2>Student Name:<a href="{% url 'detail_info' student.id %}">{{student.name}}</a> </h2>
+    <p>Roll_No: {{student.id}}</p>
+    <i>Class: {{student.standerd}}</i>
+    <hr>
+
+{% endfor %} {% endcomment %}
+
+{% block body %}
+<h1 style="text-align: center; font-family: Arial, sans-serif; color: #4CAF50;">Student Portal</h1>
+<hr style="border: 1px solid #4CAF50;">
+
+{% for student in all_students %}
+    <div style="margin-bottom: 20px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+        <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            Student Name: 
+            <a href="{% url 'detail_info' student.id %}" style="text-decoration: none; color: #007BFF;">
+                {{ student.name }}
+            </a>
+        </h2>
+        <p style="font-size: 16px; color: #555;">
+            Roll_No: {{ student.id }}
+        </p>
+        <i style="font-size: 14px; color: #777;">
+            Class: {{ student.standerd }}
+        </i>
+    </div>
+{% endfor %}
+
+<hr style="border: 1px solid #4CAF50;">
+{% endblock body %}

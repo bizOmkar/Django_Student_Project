@@ -1,0 +1,42 @@
+{%  extends "base.html" %}
+{% comment %} <h1>Student: {{marks.student}}</h1>
+<br>
+<h2>Subject Marks:</h2> 
+<p>Maths: {{marks.maths}}</p>
+<p>Science: {{marks.science}}</p>
+<p>History: {{marks.history}}</p>
+<p>PT: {{marks.pt}}</p> {% endcomment %}
+
+{% block body %}
+<h1 style="text-align: center; font-family: 'Arial', sans-serif; color: #4CAF50;">
+    Student: {{ marks.student }}
+</h1>
+<br>
+
+<h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333;">
+    Subject Marks:
+</h2> 
+
+<div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px;">
+    <div style="width: 150px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; text-align: center;">
+        <p style="font-size: 16px; margin: 0;"><strong>Maths</strong></p>
+        <p style="font-size: 18px; color: #4CAF50; margin: 5px 0;">{{ marks.maths }}</p>
+    </div>
+    <div style="width: 150px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; text-align: center;">
+        <p style="font-size: 16px; margin: 0;"><strong>Science</strong></p>
+        <p style="font-size: 18px; color: #4CAF50; margin: 5px 0;">{{ marks.science }}</p>
+    </div>
+    <div style="width: 150px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; text-align: center;">
+        <p style="font-size: 16px; margin: 0;"><strong>History</strong></p>
+        <p style="font-size: 18px; color: #4CAF50; margin: 5px 0;">{{ marks.history }}</p>
+    </div>
+    <div style="width: 150px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9; text-align: center;">
+        <p style="font-size: 16px; margin: 0;"><strong>PT</strong></p>
+        <p style="font-size: 18px; color: #4CAF50; margin: 5px 0;">{{ marks.pt }}</p>
+    </div>
+</div>
+<br>
+<a href="{% url 'edit_student' marks.pk %}">Edit Info</a> |
+<a href="{% url 'delete_student' marks.pk %}"> Delete Info</a> |
+
+{% endblock body %}
